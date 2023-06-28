@@ -25,7 +25,7 @@ for index, row in sorted_dataframe.iterrows():
         AlternateContactType= alternateContactType,
         EmailAddress= email,
         Name= alternateContactType,
-        PhoneNumber='111 222-3333',
+        PhoneNumber=' ',
         Title=alternateContactType
     )
     print(response)
