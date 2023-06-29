@@ -1,7 +1,8 @@
 import boto3
 import pandas as pd
 
-dataframe = pd.read_csv('./fakedata.csv')
+#Mettre le bon nom du fichier
+dataframe = pd.read_csv('./TriNomLQ.csv')
 
 dataframe = dataframe.melt(id_vars='AccountId', var_name='Type', value_name='Email')
 sorted_dataframe = dataframe.sort_values(by='AccountId')
@@ -10,10 +11,7 @@ sorted_dataframe.to_csv('./melted_data.csv', index=False)
 print(dataframe)
 
 for index, row in sorted_dataframe.iterrows():
-    if len(row['AccountId']) == 12:
-        accountId= row['AccountId']
-    else:
-        print(f"Invalid Account ID: {accountId}")
+    accountId= row['AccountId']
     alternateContactType = row['Type']
     email=  row['Email']
     print(accountId)
@@ -25,7 +23,7 @@ for index, row in sorted_dataframe.iterrows():
         AlternateContactType= alternateContactType,
         EmailAddress= email,
         Name= alternateContactType,
-        PhoneNumber=' ',
+        PhoneNumber='514-499-5053',
         Title=alternateContactType
     )
     print(response)
