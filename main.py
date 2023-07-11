@@ -2,7 +2,7 @@ import boto3
 import pandas as pd
 
 #Mettre le bon nom du fichier
-dataframe = pd.read_csv('./TriNomLQ.csv')
+dataframe = pd.read_csv('./fakedata.csv')
 
 dataframe = dataframe.melt(id_vars='AccountId', var_name='Type', value_name='Email')
 sorted_dataframe = dataframe.sort_values(by='AccountId')
